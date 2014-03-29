@@ -1,0 +1,86 @@
+* { margin: 0; padding: 0; }
+body { font-size: 62.5%; font-family: Georgia, serif; background: url(images/page-bg.jpg); }
+.clear { clear: both; }
+fieldset { border: none; }
+input, textarea, a { outline: none; }
+
+#page-wrap {
+	width: 800px;
+	margin: 0 auto;
+	background: url(images/form-bg.jpg) top center no-repeat;
+	min-height: 600px;
+}
+form {
+	padding: 83px 0 0 76px;
+}
+h1 {
+	text-align: center;
+	padding-top: 200px;
+}
+#formLeft {
+	width: 320px;
+	float: left;
+	}
+	#formLeft input {
+		width: 250px;
+		margin: 0 0 20px 0;
+		border: none;
+		text-align: center;
+		background: none;
+		margin: 13px 0 0 8px;
+		font-size: 1.4em;
+	}
+	#formLeft .input-bg {
+		background: url(images/form-sm-bg.jpg) bottom left no-repeat transparent;
+		height: 45px;
+		margin-bottom: 10px;
+		position: relative;
+	}
+	#formLeft .active {
+		background: url(images/form-sm-bg.jpg) top left no-repeat transparent;
+	}
+#formRight {
+	width: 360px;
+	float: right;
+	padding-right: 44px;
+	}
+	#formRight textarea {
+		width: 298px;
+		height: 209px;
+		display: block;
+		border: none;
+		background: none;
+		margin: 0 0 0 20px;
+		padding: 13px 0 13px 0;
+		font-family: Helvetica, sans-serif;
+		font-size: 1.3em;
+		overflow: auto;
+	}
+	#formRight .message-bg {
+		background: url(images/message-bg.jpg) bottom left no-repeat transparent;
+		height: 238px;
+	}
+	#formRight .active {
+		background: url(images/message-bg.jpg) top left no-repeat transparent;
+	}
+label {
+	display: block;
+	font-size: 1.3em;
+	text-indent: 10px;
+	font-weight: bold;
+}
+label.error {
+	position: absolute;
+	top: -16px;
+	right: 49px;
+	padding: 3px;
+	color: #da3939;
+	font-size: 1.0em;
+	text-align: right;
+	font-style: italic;
+	font-weight: normal;
+}
+input.submit-button {
+	float: right;
+	padding-right: 31px;
+}
