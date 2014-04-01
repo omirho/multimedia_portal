@@ -5,10 +5,10 @@
  * Do not copy it without permission.
  */
 //Contact at: tapan84silchar[at]gmail.com
-define("HOST11", "http://localhost/ProjectUploader");
-define("HOSTNAME", "localhost");
+define("HOST11", "http://172.16.25.158/multimedia_portal");
+define("HOSTNAME", "172.16.25.158");
 define("USERNAME", "root");
-define("PASS", "kunal");
-define("DBNAME", "project");
+define("PASS", "software");
+define("DBNAME", "multimedia_portal");
 
 ?>
