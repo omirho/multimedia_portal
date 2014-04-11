@@ -3,7 +3,7 @@
 /////////////////////////////////////////
 //Editiong this class to set the connection settings
 /////////////////////////////////////
-include_once '../config/config.php';
+include_once 'config/config.php';
 
 
 
