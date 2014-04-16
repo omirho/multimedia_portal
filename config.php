@@ -11,5 +11,4 @@ define("USERNAME", "root");
 define("PASS", "software");
 define("DBNAME", "multimedia_portal");
 define("HOSTNAME", "172.16.25.158");
-
 ?>
