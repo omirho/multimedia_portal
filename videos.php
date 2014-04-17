@@ -1,3 +1,15 @@
+<?php
+	/*if(!isset($_SESSION['userid']))
+	{
+		header('Location: login.php');
+	}
+	else
+	{
+		session_start();
+		$userid = $_SESSION['userid'];
+	}*/
+	$userid = "pulkit.arora";
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -154,17 +166,25 @@
  	<div id="menu" style="left:40%;width:10%;height:100%;position:relative;top:0%;font-size:15px;float:left;text-align:left;" onclick="$('#education').slideDown('slow');">Education</div>
  	<div id="menu" style="left:60%;width:10%;height:100%;position:relative;top:0%;font-size:15px;float:left;text-align:left;" onclick ="$('#language').slideDown('slow');">Language</div>
  </div>       
-              
-</div>
+  </div>
+
 
 
 <div id="menu" style="left:0%;top:22%;height:50%;background-color:#006666;width:20%;position:absolute;color:white;">
-<a href="./videos.php?v=upvotes">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick="">Upvotes</div></a>
-<a href="./videos.php?v=recommendations">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:green;text-align:center;cursor:pointer;" onclick="">Recommendations</div></a>
-<a href="./videos.php?v=views">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick="">Views</div></a>
-	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:green;text-align:center;cursor:pointer;" onclick=""></div>
-	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick=""></div>
+	<div id="menu" style="left:0%;top:30%;background-color:#006666;width:20%;position:relative;float:left;height:20%;"   >
+	<div id="edit" style="left:0%;top:0%;background-color:#006666;position:absolute;width:100%;height:20%;color:white;text-size:50px;text-align:center;font-family: 'Freckle Face', cursive;cursor:pointer;float:center;" onclick="location.href='gallery.php'">VIDEOS</div>
+	<div id="edit" style="left:0%;top:25%;background-color:#006666;position:absolute;width:100%;height:20%;color:white;text-size:50px;text-align:center;font-family: 'Freckle Face', cursive;cursor:pointer;float:center" onclick="location.href='upload.php'">UPLOAD</div>
+	<div id="edit" style="left:0%;top:50%;background-color:#006666;position:absolute;width:100%;height:20%;color:white;text-size:50px;text-align:center;font-family: 'Freckle Face', cursive;cursor:pointer;float:center" onclick="location.href='edit.php'">VIEW</div>
+	<div id="edit" style="left:0%;top:75%;background-color:#006666;position:absolute;width:100%;height:20%;color:white;text-size:50px;text-align:center;font-family: 'Freckle Face', cursive;cursor:pointer;float:center" onclick="$('#sort').slideDown('fast');">SORT IMAGES</div>
 </div>
+</div>
+
+<!-- <div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color::#006666;text-align:center;cursor:pointer;" onclick="location.href='./videos.php?v=upvotes'">Upvotes</div></a>
+<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color::#006666;text-align:center;cursor:pointer;" onclick="./videos.php?v=views">Views</div>
+	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color::#006666;text-align:center;cursor:pointer;" onclick="location.href='./videos.php?v=recommendations'">Recommendations</div>
+	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color::#006666;text-align:center;cursor:pointer;" onclick=""></div>
+	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color::#006666;text-align:center;cursor:pointer;" onclick=""></div>
+</div> -->
 <div style="background-color:#EDEDE5">
 <div id="background" style="left:20%;position:absolute;top:20%;width:90%;background-color:#EDEDE5;height:100%;background-repeat:repeat-y;">
 	<div id="maincontent" style="left:10%;top:5%;width:80%;height:95%;position:relative;background-color:white;overflow:scroll;">
@@ -565,6 +585,13 @@
 	<input type="checkbox" name="languagearray[]" onchange = "searchSelector()" value="sports">Japanese<br>
 </div>
 </form>
+
+<div id="sort" style="left:0%;top:50%;position:absolute;background-color:#006666;width:20%;height:20%;display:none;">
+	
+	<div id="edit" style="left:0%;top:0%;background-color:#006666;position:absolute;width:100%;height:25%;color:white;text-size:50px;text-align:center;font-family: 'Freckle Face', cursive;cursor:pointer;float:center" onclick="window.open('./videos.php?v=upvotes','_self')">UPVOTES</div>
+	<div id="edit" style="left:0%;top:25%;background-color:#006666;position:absolute;width:100%;height:25%;color:white;text-size:50px;text-align:center;font-family: 'Freckle Face', cursive;cursor:pointer;float:center" onclick="window.open('./videos.php?v=views','_self')">VIEWS</div>
+</div>
+
 
 </body>
 </html>

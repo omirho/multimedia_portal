@@ -1,3 +1,27 @@
+<?php
+	if(!isset($_SESSION['userid']))
+	{
+		if(isset($_COOKIE['userid']))
+		{
+			$userid = $_COOKIE['userid'];
+			require 'mysql/class.MySQL.php';
+			$data = new MySQL();
+		 	$abc = array("userid"=>$userid);
+		 	$row = $data->Select("users",$abc);
+		 	if($data->records == 1)
+		 	{
+		 		session_start();
+		 		$_SESSION['userid'] = $userid;
+		 		$_SESSION['username'] = $row['name'];
+		 		header('Location: videos.php');
+		 	}
+		}
+	}
+	else
+	{
+		header('Location: videos.php');
+	}
+?>
 <!DOCTYPE>
 <html>
 <head>
@@ -64,31 +88,30 @@
 	<br>
 	<br>
  </div>
-	<form action="demo.asp">
+	<form id="detailsform" action="demo.asp">
 
-	<div id="name" style="text-align:center;height:5%;width:100%;">
-	<input type="text" name="firstname" value="NAME"  style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;top:20%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;"></div>
+	<div  style="text-align:center;height:5%;width:100%;">
+	<input id="name" type="text" name="name" value="" style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;top:20%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;"></div>
 	<br>
-	<div id="name" style="text-align:center;height:5%;width:100%">
+	<div style="text-align:center;height:5%;width:100%">
 	<input type="text" name="username" value="USERNAME " style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;top:30%"></div>
 	<br>
-	<div id="name" style="text-align:center;height:5%;width:100%">
+	<div style="text-align:center;height:5%;width:100%">
 	<input type="password" name="password" value="PASSWORD" style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;top:40%"></div>
 	<br>
-	<div id="name" style="text-align:center;height:5%;width:100%">
+	<div style="text-align:center;height:5%;width:100%">
 	<input type="password" name="verifypassword" value="VERIFY PASSWORD" style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;top:50%"></div>
 	<br>
-	<div id="name" style="text-align:center;height:5%;width:100%">
+	<div style="text-align:center;height:5%;width:100%">
 	 <input type="email" name="email" value="EMAIL" style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;top:60%"></div>
 	<br>
-	<div id="name" style="text-align:center;height:5%;width:100%">
+	<div style="text-align:center;height:5%;width:100%">
 	 <input type="email" name="email" value="VERIFY EMAIL" style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;top:70%"></div>
 	<br>
-	<div id="name" style="text-align:center;height:5%;width:100%"> 
+	<div style="text-align:center;height:5%;width:100%"> 
 	<input type="integer" name="mobile" value="MOBILE"style="box-shadow:5px 5px 5px 2px grey;height:5%;position:absolute;width:50%;border-radius:25px;left:0%;font-family: 'Freckle Face', cursive;top:80%"></div>
 	<br>
 	</form>
 </div>
-
 </body>
 </html>

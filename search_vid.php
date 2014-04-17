@@ -1,3 +1,15 @@
+<?php
+    /*if(!isset($_SESSION['userid']))
+    {
+        header('Location: login.php');
+    }
+    else
+    {
+        session_start();
+        $userid = $_SESSION['userid'];
+    }*/
+    $userid = "pulkit.arora";
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

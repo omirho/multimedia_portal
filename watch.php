@@ -1,6 +1,13 @@
 <?php
-	//session_start();
-	//$userid = $_SESSION["userid"];
+	/*if(!isset($_SESSION['userid']))
+	{
+		header('Location: login.php');
+	}
+	else
+	{
+		session_start();
+		$userid = $_SESSION['userid'];
+	}*/
 	$userid = "pulkit.arora";
 ?>
 <?php require 'mysql/class.MySQL.php' ?>
@@ -86,10 +93,15 @@
 						else
 							var temp4 = temp1+$("#username").val()+temp2+comtext+temp3;
 						$("#list").html(temp4);
-						$("#cd").val("Enter Comment Here!");
+						$("#cd").val("Enter Comment Here..!");
 					}
 				});
 			}
+		});
+		$("#cd").click(function(){
+			var abcdef = $("#cd").val();
+			if(abcdef == "Enter Comment Here..!" )
+				$("#cd").val("");
 		});
 		$("#li").click(function(){
 			ll = $("#lv").val();
@@ -173,6 +185,195 @@
 	</script>
 	<?php echo'<title>'.$row["name"].'</title>';
 	?>
+	<style type="text/css">
+	#comment{
+		width:100%;
+		height:15%;
+		position:relative;
+		background-color:white;
+		font-size:20px;
+		font-family:'Freckle Face', cursive;
+
+	}
+	#butt{
+
+		 left:5%;
+		 top:75%;
+		 height:80%;
+		 position:absolute;
+		 width:60%;
+		 background-color:#EDEDE5;
+		 font-size:40px;
+		font-family:'Freckle Face', cursive;
+	}
+	#name{
+		width:100%;
+		left:0%;
+		height:10%;
+		position:absolute;
+		top:0%;
+		background-color:#EDEDE5;
+		 font-size:40px;
+		font-family:'Freckle Face', cursive;
+	}
+	#uploader{
+		width:50%;
+		left:0%;
+		height:10%;
+		position:absolute;
+		top:10%;
+		text-align: center;
+		font-size:30px;
+		font-family:'Freckle Face', cursive;
+	}
+	#views{
+		 width:20%;
+		 left:60%;
+		 height:10%;
+		 position:absolute;
+		 top:10%;
+		 font-size:20px;
+		font-family:'Freckle Face', cursive;
+		text-align: center;
+	}
+	#likes{
+	width:19%;
+	left:60%;
+	height:10%;
+	position:absolute;
+	top:20%;
+	 font-size:20px;
+		font-family:'Freckle Face', cursive;
+		text-align: center;
+
+	}
+	#dislikes{
+	width:22%;
+	left:79%;
+	height:10%;
+	position:absolute;
+	top:20%;
+	font-size:20px;
+	font-family:'Freckle Face', cursive;
+		text-align: center;
+	}
+	#download{
+		width:100%;
+		left:0%;
+		height:10%;
+		position:absolute;
+		top:30%;
+		font-size:40px;
+		font-family:'Freckle Face', cursive;
+		text-align: center;
+		background-color: #EDEDE5;
+
+	}
+	#comments{
+		width:100%;
+		left:0%;
+		height:5%;
+		position:absolute;
+		top:40%;
+		font-family:'Freckle Face', cursive;
+		
+	}
+	#cd{
+		top:50%;
+		position:absolute;
+		left:10%;
+		width:80%;
+		height:10%;
+		font-family:'Freckle Face', cursive;
+		
+	}
+	#sc{
+		top:63%;
+		position:absolute;
+		left:70%;
+		width:10%;
+		height:5%;
+		font-family:'Freckle Face', cursive;
+		
+	}
+	#list{
+		width:100%;
+		position:relative;
+		top:70%;
+		height:100%;
+	}
+	#recommendations{
+		left:70%;
+		top:75%;
+		height:80%;
+		position:absolute;
+		width:20%;
+		background-color:#EDEDE5;;
+	}
+	#comment{
+		width:100%;
+		height:15%;
+		position:relative;
+	}
+	#username{
+		width:100%;
+		left:0%;
+		height:30%;
+		position:absolute;
+		font-size: 18px;
+		top:0%;
+		/*background-color:red;*/
+	}
+	#text{
+		 width:100%;
+		 left:0%;
+		 height:70%;
+		 position:absolute;
+		 top:30%;
+		 font-size: 15px;
+		 /*background-color:blue*/
+	}
+	#li{
+	width:20%;
+	left:10%;
+	height:50%;
+	position: absolute;
+	/*appearance:button;
+	-moz-appearance:button; 
+	-webkit-appearance:button;*/
+	top:30%;
+	 font-size:10px;
+		font-family:'Freckle Face', cursive;
+		text-align: center;
+
+	}
+	#dli{
+		width:20%;
+	left:40%;
+	/*appearance:button;
+	-moz-appearance:button;  
+	-webkit-appearance:button;*/
+	height:50%;
+	position:absolute;
+	top:30%;
+	 font-size:10px;
+		font-family:'Freckle Face', cursive;
+		text-align: center;
+
+	}
+	#down{
+		width:20%;
+	left:70%;
+	height:50%;
+	position:absolute;
+	top:30%;
+	 font-size:10px;
+		font-family:'Freckle Face', cursive;
+		text-align: center;
+
+	}
+	}
+	</style>
 </head>
 <body style="height:100%;width:100%;position:absolute;left:0%;top:0%;" >
 	
@@ -211,21 +412,22 @@
 <br>
 
 
-<div id="butt" style="left:5%;top:75%;height:80%;position:absolute;width:60%;background-color:grey;">
-<?php echo'<input id="tagg" type="hidden" value="'.$row['tag'].'" ><input id="lang" type="hidden" value="'.$row['language'].'" ><input id="use" type="hidden" value="'.$userid.'" ><input id="lv" type="hidden" value="'.$likeval.'" ><input id="vl" type="hidden" value="'.$v.'" ><div id="name" style="width:100%;left:0%;height:10%;position:absolute;top:0%;background-color:red;">'.$row['name'].'</div>
-<div id="uploader" style="width:30%;left:0%;height:10%;position:absolute;top:10%;background-color:blue;">'.$row1['name'].' ( '.$row['userid'].' )</div>
-<div id="views" style="width:30%;left:60%;height:10%;position:absolute;top:10%;">'.($row['views']+1).'</div>
-<div id="likes" style="width:20%;left:60%;height:10%;position:absolute;top:20%;background-color:violet;">'.$row['upvotes'].'</div>
-<div id="dislikes" style="width:20%;left:80%;height:10%;position:absolute;top:20%;background-color:green;">'.$row['downvotes'].'</div>
-<div id="download" style="width:30%;left:5%;height:10%;position:absolute;top:30%;background-color:white">
+<div id="butt">
+<?php echo'<input id="tagg" type="hidden" value="'.$row['tag'].'" ><input id="lang" type="hidden" value="'.$row['language'].'" ><input id="use" type="hidden" value="'.$userid.'" ><input id="lv" type="hidden" value="'.$likeval.'" ><input id="vl" type="hidden" value="'.$v.'" >
+<div id="name" >'.$row['name'].'</div>
+<div id="uploader" >'.$row1['name'].' ( '.$row['userid'].' )</div>
+<div id="views">Views:'.($row['views']+1).'</div>
+<div id="likes" >'.$row['upvotes'].'</div>
+<div id="dislikes" >'.$row['downvotes'].'</div>
+<div id="download" >
 	<button id="li">Upvote!</button>
 	<button id="dli">Downvote!</button>
-	<button id="down">Download Me!</button>
+	<a href="videos/'.$row['hash'].'.'.$row['extention'].'" download="'.$row['name'].' - OsHelf.com"><button id="down">Download Me!</button></a>
 </div>
-<div id="comments" style="width:100%;left:0%;height:5%;position:absolute;top:40%;background-color:lightblue">Comments</div>
-<textarea id="cd" rows="4" cols="50" style="top:50%;position:absolute;left:10%;width:80%;height:10%">Enter Comment Here..!</textarea>
-<button id="sc" style="top:63%;position:absolute;left:70%;width:10%;height:5%">Submit</button>
-<div id="list" style="width:100%;position:relative;top:70%;height:100%">';
+<div id="comments" >Comments</div>
+<textarea id="cd" rows="4" cols="50" >Enter Comment Here..!</textarea>
+<button id="sc" >Submit</button>
+<div id="list" >';
 $data2 = new MySQL();
 $abc2 = array("code"=>$v,"type"=>"videos");
 $row2 = $data2->Select("comments",$abc2,"time DESC");
@@ -233,9 +435,9 @@ if($data2->records>0)
 {
 	if($data2->records==1)
 	{
-		echo '<div id="comment" style="width:100%;height:15%;position:relative;background-color:blue;">
-		<div id="username" style="width:100%;left:0%;height:30%;position:absolute;top:0%;background-color:red">'.$row2['userid'].'</div>
-		<div id="text" style="width:100%;left:0%;height:70%;position:absolute;top:30%;background-color:blue">'.$row2['description'].'</div>
+		echo '<div id="comment">
+		<div id="username" >'.$row2['userid'].'</div>
+		<div id="text">'.$row2['description'].'</div>
 		</div>
 		<br>';
 	}
@@ -243,9 +445,9 @@ if($data2->records>0)
 	{
 		for ($i = 0; $i < $data2->records; $i++)
 		{
-			echo '<div id="comment" style="width:100%;height:15%;position:relative;background-color:blue;">
-			<div id="username" style="width:100%;left:0%;height:30%;position:absolute;top:0%;background-color:red">'.$row2[$i]['userid'].'</div>
-			<div id="text" style="width:100%;left:0%;height:70%;position:absolute;top:30%;background-color:blue">'.$row2[$i]['description'].'</div>
+			echo '<div id="comment" >
+			<div id="username" >'.$row2[$i]['userid'].'</div>
+			<div id="text" >'.$row2[$i]['description'].'</div>
 			</div>
 			<br>';
 		}
@@ -258,7 +460,7 @@ else
 echo '</div>
 
 </div>
-<div id="recommendations" style="left:70%;top:75%;height:80%;position:absolute;width:20%;background-color:yellow;">
+<div id="recommendations" >
 ';
 require 'recommendFunctions.php';
 $str = "pic.jpg";
