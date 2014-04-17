@@ -64,7 +64,7 @@
 					code: vv
 				},
 				function(data,status){
-					if(status == "success")
+					if(data == "Success")
 					{
 						alert(data);
 						var commentlist = $("#list").html();
@@ -77,12 +77,13 @@
 						else
 							var temp4 = temp1+$("#username").val()+temp2+comtext+temp3;
 						$("#list").html(temp4);
-						$("#cd").val = "Enter Comment Here!";
+						$("#cd").val("Enter Comment Here!");
 					}
 				});
 			}
 		});
 		$("#li").click(function(){
+			ll = $("#lv").val();
 			$.post("test1.php",
 		  	{
 		    	type:"videos",
@@ -92,7 +93,7 @@
 				tag: tagg
 		  	},
 		  	function(data,status){
-		    	if(status == "success")
+		    	if(data == "Success")
 		    	{
 		    		alert(data);
 		    		$("#li").attr('disabled',true);
@@ -105,12 +106,13 @@
 		    			$("#dislikes").html(dlik-1);
 		    		else
 		    		{
-		    			$("#lv").attr("value","1");
+		    			$("#lv").val("1");
 		    		}
 		    	}
 		  	});
 		});
 		$("#dli").click(function(){
+			ll = $("#lv").val();
 			$.post("test1.php",
 		  	{
 		    	type:"videos",
@@ -133,7 +135,7 @@
 		    			$("#likes").html(lik-1);
 		    		else
 		    		{
-		    			$("#lv").attr("value","-1");
+		    			$("#lv").val("-1");
 		    		}
 		    		$("#dislikes").html(dlik+1);
 		    	}
