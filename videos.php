@@ -176,7 +176,7 @@
 		//echo $query;
 		if($query=="")
 		{
-			echo '<div style="margin-left:20px;margin-top:20px;">UPVOTES</div>';
+			echo '<div style="margin-left:20px;margin-top:20px;width:100%">UPVOTES</div>';
 			//echo '<div id="sr1" ><span class="module"><b><p>Upvotes</p></b></span>';
 			
 			$x = 0; 
@@ -205,7 +205,7 @@
 				$j++;
 			}
 			$i = $count-1;
-			while($j<8)
+			/*while($j<8)
 			{
 				$name = substr($data[$i]->name,0,20);
 				echo $i, $j, $data[$i]->description;
@@ -226,7 +226,7 @@
 				</div>';
 				$i--;
 				$j++;
-			}
+			}*/
 			}
 			else{
 				$name = substr($data->name,0,20);
@@ -257,7 +257,7 @@
 		//echo $query;
 		if($query=="")
 		{
-			echo '<div style="margin-left:18px;">VIEWS</div>';
+			echo '<div style="margin-left:18px;width:100%">VIEWS</div>';
 			//echo '<div id="sr1"><span class="module"><b><p>Views</p></span>';
 			$x = 0; 
 			$data = getList("views");
@@ -285,7 +285,7 @@
 				$j++;
 			}
 			$i = $count-1;
-			while($j<8)
+			/*while($j<8)
 			{
 				$name = substr($data[$i]->name,0,20);
 				$description = substr($data[$i]->description,0,20);
@@ -302,7 +302,7 @@
 				</div>';
 				$i--;
 				$j++;
-			}
+			}*/
 			}
 			else{
 				$name = substr($data->name,0,20);
@@ -321,7 +321,7 @@
 			echo '</div>';
 			//echo '</div>';
 		}
-		
+		//echo '<br>';
 		?>
 		
 		<!-- <div>TIME</div> -->
@@ -407,7 +407,7 @@
 		//echo $query;
 		if($query=="")
 		{
-			echo '<div style="margin-left:20px;">UPLOAD TIME</div>';
+			echo '<div style="margin-left:20px;width:100%">UPLOAD TIME</div>';
 			//echo '<div id="sr1"><span class="module"><b><p>Views</p></span>';
 			$x = 0; 
 			$data = getList("views");
@@ -435,7 +435,7 @@
 				$j++;
 			}
 			$i = $count-1;
-			while($j<8)
+			/*while($j<8)
 			{
 				$name = substr($data[$i]->name,0,20);
 				$description = substr($data[$i]->description,0,20);
@@ -452,7 +452,7 @@
 				</div>';
 				$i--;
 				$j++;
-			}
+			}*/
 			}
 			else{
 				$name = substr($data->name,0,20);
@@ -471,6 +471,7 @@
 			//echo '</div>';
 			echo '</div>';
 		}
+		//echo '<br>';
 		
 		?>
 		

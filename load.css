@@ -131,8 +131,9 @@ figcaption{
 	/*padding-top: 30px;*/
 	padding-left: 18px;
 	margin-left: 0px;
-	
-	/*position: relative;*/
+	width: 100%;
+	position: relative;
+	float: left;
 }
 .pic{
 	height: 175px;

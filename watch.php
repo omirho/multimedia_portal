@@ -41,7 +41,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+	<!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	
 	<script type="text/javascript">
 	$(document).ready(function() {
 		var vv = $("#vl").val();
@@ -100,7 +109,7 @@
 		    		$("#dli").attr('disabled',false);
 		    		var lik = Number($("#likes").html());
 		    		var dlik = Number($("#dislikes").html());
-		    		alert(lik, dlik);
+		    		//alert(lik, dlik);
 		    		$("#likes").html(lik+1);
 		    		if(ll != 0)
 		    			$("#dislikes").html(dlik-1);
@@ -130,7 +139,7 @@
 		    		$("#dli").attr('disabled',true);
 		    		var lik = Number($("#likes").html());
 		    		var dlik = Number($("#dislikes").html());
-		    		alert(lik, dlik);
+		    		//alert(lik, dlik);
 		    		if(ll !=0 )
 		    			$("#likes").html(lik-1);
 		    		else
@@ -141,8 +150,22 @@
 		    	}
 		  	});
 		});
+		$( "#search_bar" ).autocomplete({
+      source: function(request,response){
+	            $.ajax({
+	                url: "suggest.php",
+	                dataType: "json",
+	                type: "GET",
+	                data: {query : request.term},
+	                success: function(response_data){
+	                    response(response_data);
+                	}
+            	});
+       		}
+    	});
 	});
 	</script>
+	
 	<link href="video-js/video-js.css" rel="stylesheet">
 	<script src="video-js/video.js"></script>
 	<script>
@@ -155,7 +178,24 @@
 	
 
 <div id="bar" style="height:8%;width:100%;position:absolute;background-color:#006666;top:0%;left:0%;font-size:50px;font-family:'verdana';color:white;" >VIDEOS
-<div id="homebutton" style="left:90%;position:absolute;top:2%;"><a href="login.php"><img src="images/homebutton.png" height="50%" width="50%"></a></div>
+<div id="homebutton" style="left:90%;position:absolute;top:7%;"><a href="main.php"><img src="images/homebutton.png" height="50%" width="50%"></a></div>
+ <div id="searchwrap" >
+ 	<form action="search_vid.php" method="POST" name = "searchForm" >
+
+                <input type="text" name = "query" id = 'search_bar' class="twitterStyleTextbox"  onfocus="if(this.value == 'Enter search here') this.value=''"
+                        onblur="if(this.value =='') this.value='Enter search here'"
+                        onblur="fill(this.value)" style="left:60%;width:16%;height:20%;top:20%;position:absolute;">
+                <input type="submit" name="searchButton" class="button-search" value="search" style="left:76.5%;width:8%;height:28%;top:20%;position:absolute;" />
+            </form>
+ </div>       
+	<!-- <div style="left:76.5%;width:8%;height:32%;top:20%;position:absolute;"><a href="advan_UI.php">Advanced Search</a></div> -->
+
+ <div id="options" style="left:25%;width:30%;height:30%;top:20%;position:absolute;float:left;">
+ 	<div id="menu"  style="left:0%;width:10%;height:100%;position:relative;top:0%;font-size:15px;float:left;text-align:left;" onclick="$('#entertainment').slideDown('slow');" >Entertainment</div>
+ 	<div id="menu"  style="left:30%;width:10%;height:100%;position:relative;top:0%;font-size:15px;float:left;text-align:left;" onclick ="$('#sports').slideDown('slow');">Sports</div>
+ 	<div id="menu" style="left:40%;width:10%;height:100%;position:relative;top:0%;font-size:15px;float:left;text-align:left;" onclick="$('#education').slideDown('slow');">Education</div>
+ 	<div id="menu" style="left:60%;width:10%;height:100%;position:relative;top:0%;font-size:15px;float:left;text-align:left;" onclick ="$('#language').slideDown('slow');">Language</div>
+ </div>
 </div>
 <div id="videobox" style="left:15%;top:12%;height:60%;width:70%;position:absolute;">
 	<video id="video_1" class="video-js vjs-default-skin vjs-big-play-centered"
@@ -253,5 +293,29 @@ else if($data == "NULL"){
 }*/
 echo '</div>';
 ?>
+<div id="entertainment" style="left:25%;width:10%;height:20%;top:11%;position:absolute;background-color:#006666;font-family:'verdana';color:white;display:none;" onmouseup="$('#entertainment').slideUp('slow');">
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="comedy">Comedy scenes<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="movies">Movies<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="songs">Songs<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="sports">Sports<br>
+</div>
+<div id="sports" style="left:37%;width:10%;height:20%;top:11%;position:absolute;background-color:#006666;display:none;font-family:'verdana';color:white;" onmouseup="$('#sports').slideUp('slow');">
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="comedy">Football<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="movies">Cricket<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="songs">Tennis<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="sports">Badminton<br>
+</div>
+<div id="education" style="left:43%;width:10%;height:20%;top:11%;position:absolute;background-color:#006666;display:none;font-family:'verdana';color:white;" onmouseup="$('#education').slideUp('slow');">
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="comedy">Tutorials<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="movies">Lectures<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="songs">Problems<br>
+	<input type="checkbox" name="checkboxarray[]" onchange = "searchSelector()" value="sports">Solutions<br>
+</div>
+<div id="language" style="left:52%;width:10%;height:20%;top:11%;position:absolute;background-color:#006666;display:none;font-family:'verdana';color:white;" onmouseup="$('#language').slideUp('slow');">
+	<input type="checkbox" name="languagearray[]" onchange = "searchSelector()" value="comedy">English<br>
+	<input type="checkbox" name="languagearray[]" onchange = "searchSelector()" value="movies">Hindi<br>
+	<input type="checkbox" name="languagearray[]" onchange = "searchSelector()" value="songs">Telugu<br>
+	<input type="checkbox" name="languagearray[]" onchange = "searchSelector()" value="sports">Japanese<br>
+</div>
 </body>
 </html>

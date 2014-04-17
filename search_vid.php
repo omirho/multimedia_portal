@@ -191,9 +191,9 @@
 
 
 <div id="menu" style="left:0%;top:22%;height:50%;background-color:#006666;width:20%;position:absolute;color:white;">
-<a href="./videos1.php?v=upvotes">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick="">Upvotes</div></a>
-<a href="./videos1.php?v=recommendations">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:green;text-align:center;cursor:pointer;" onclick="">Recommendations</div></a>
-<a href="./videos1.php?v=views">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick="">Views</div></a>
+<a href="./videos.php?v=upvotes">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick="">Upvotes</div></a>
+<a href="./videos.php?v=recommendations">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:green;text-align:center;cursor:pointer;" onclick="">Recommendations</div></a>
+<a href="./videos.php?v=views">	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick="">Views</div></a>
 	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:green;text-align:center;cursor:pointer;" onclick=""></div>
 	<div id="component" style="left:0%;top:0%;position:relative;width:100%;height:20%;background-color:lightgreen;text-align:center;cursor:pointer;" onclick=""></div>
 </div>
@@ -215,7 +215,7 @@
 			$data = search($query,$tags,$language);
 			if($data=="")
 			{
-				echo "NO QUERY FOUND\n";
+				echo "NO RESULTS FOUND\n";
 			}
 			else{
 				$count = count($data);
